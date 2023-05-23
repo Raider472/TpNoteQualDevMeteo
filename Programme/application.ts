@@ -13,6 +13,7 @@ function main(): void {
   rs.question();
   stationMeteo.ajouterObservateur("afficheur texte", aff)
   stationMeteo.ajouterObservateur("afficheur graphique", aff2)
+  aff.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
   aff.affiche(0)
 
   stationMeteo.humidité++;
