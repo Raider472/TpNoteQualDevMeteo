@@ -11,14 +11,18 @@ function main(): void {
 
   console.log("Appuyez sur entrée pour le prochain affichage");
   rs.question();
-  aff.affiche(stationMeteo.temperature, stationMeteo.humidité)
+  stationMeteo.ajouterObservateur("afficheur texte", aff)
+  stationMeteo.ajouterObservateur("afficheur graphique", aff2)
+  aff.affiche(0)
 
   stationMeteo.humidité++;
   for (let p = 0; p < 10; p++) {
     console.log("Appuyez sur entrée pour le prochain affichage");
     rs.question();
-    aff.affiche(stationMeteo.temperature, stationMeteo.humidité)
-    //affichage graphique
+    aff.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
+    aff.affiche(p)
+    aff2.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
+    aff2.affiche()
     stationMeteo.humidité--;
     stationMeteo.temperature += 2;
   }
@@ -26,8 +30,10 @@ function main(): void {
   for (let p = 0; p < 10; p++) {
     console.log("Appuyez sur entrée pour le prochain affichage");
     rs.question();
-    aff.affiche(stationMeteo.temperature, stationMeteo.humidité)
-    //affichage graphique
+    aff.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
+    aff.affiche(p)
+    aff2.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
+    aff2.affiche()
     stationMeteo.humidité++;
     stationMeteo.temperature -= 3;
   }
