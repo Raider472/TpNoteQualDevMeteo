@@ -1,1 +1,1 @@
-    aff2.affiche()
+  aff.affiche(0)

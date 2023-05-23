@@ -10,12 +10,13 @@ export class AfficheurGraphique implements IObserver {
     this.tabHumidité = [];
   }
 
-  affiche(): void {
+  private affiche(): void {
     console.log(asciichart.plot([this.tabTemperature, this.tabHumidité]));
   }
 
-  miseAJour(humidité: number, température: number): void {
+  public miseAJour(humidité: number, température: number): void {
     this.tabHumidité.push(humidité);
     this.tabTemperature.push(température);
+    this.affiche()
   }
 }

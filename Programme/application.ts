@@ -14,16 +14,14 @@ function main(): void {
   stationMeteo.ajouterObservateur("afficheur texte", aff)
   stationMeteo.ajouterObservateur("afficheur graphique", aff2)
   aff.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
-  aff.affiche(0)
+  aff2.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
 
   stationMeteo.humidité++;
   for (let p = 0; p < 10; p++) {
     console.log("Appuyez sur entrée pour le prochain affichage");
     rs.question();
     aff.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
-    aff.affiche(p)
     aff2.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
-    aff2.affiche()
     stationMeteo.humidité--;
     stationMeteo.temperature += 2;
   }
@@ -32,9 +30,7 @@ function main(): void {
     console.log("Appuyez sur entrée pour le prochain affichage");
     rs.question();
     aff.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
-    aff.affiche(p)
     aff2.miseAJour(stationMeteo.humidité, stationMeteo.temperature)
-    aff2.affiche()
     stationMeteo.humidité++;
     stationMeteo.temperature -= 3;
   }
